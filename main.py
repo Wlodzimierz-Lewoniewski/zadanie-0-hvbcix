@@ -1,9 +1,18 @@
-#Przykład otrzymania wartości wprowadzonej przy użyciu funkcji input().
-wyraz=input()
+document_list = []
+document_count = int(input("How many documents you want to add?: "))
+for i in range(0, document_count):
+    document_list.append(input("Input document: "))
 
-#W celu poprawnego działania kodu w ramach GitHub Classroom warto dodatkowo użyć funkcję strip()
-#To pozwoli na usunięcie spacji oraz innych "spacjopodobnych" znaków (tabulacja \t', przejście do nowej linii '\n' lub '\r' etc.) z "głowy" i "ogona" (lewej i prawej części wyrazu).
-wyraz=wyraz.strip()
+search_list = []
+search_count = int(input("How many words you want to search?: "))
+for i in range(0, search_count):
+    while True:
+        word = input("Input the word: ")
+        if word in search_list:
+            print("This word already exists")
+        else:
+            search_list.append(word)
+            break
 
-#Wydruk na ekranie (w konsoli)
-print ('Ten wyraz został wprowadzony:', wyraz)
+print(document_list)
+print(search_list)
