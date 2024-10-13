@@ -1,3 +1,5 @@
+import re
+
 document_list = []
 document_count = int(input("How many documents you want to add?: "))
 for i in range(0, document_count):
@@ -15,7 +17,9 @@ for i in range(0, search_count):
             break
 
 def count_word_in_document(word, document):
-    return document.lower().split().count(word.lower())
+    document_cleaned = re.sub(r'[^\w\s]', '', document.lower())
+    word_cleaned = word.lower()
+    return document_cleaned.split().count(word_cleaned)
 
 for word in search_list:
     document_word_count = []
